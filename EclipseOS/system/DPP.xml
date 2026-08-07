@@ -1,0 +1,27 @@
+<scheme name="DPP" version="142">
+    <option name="TEXT">
+        <value>
+            <option name="FOREGROUND" value="ffffff"/>
+        </value>
+    </option>
+
+    <option name="KEYWORD">
+        <value>
+            <option name="FOREGROUND" value="ff6a00"/>
+            <option name="FONT_TYPE" value="1"/>
+        </value>
+    </option>
+
+    <option name="STRING">
+        <value>
+            <option name="FOREGROUND" value="00ff88"/>
+        </value>
+    </option>
+
+    <option name="COMMENT">
+        <value>
+            <option name="FOREGROUND" value="888888"/>
+            <option name="FONT_TYPE" value="2"/>
+        </value>
+    </option>
+</scheme>

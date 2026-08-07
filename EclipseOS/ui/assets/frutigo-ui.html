@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Frutigo Aero — EclipseOS</title>
+    <style>
+        * { box-sizing: border-box; }
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            font-family: "Segoe UI", "Trebuchet MS", Verdana, sans-serif;
+            user-select: none;
+        }
+
+        /* ---------- DESKTOP ---------- */
+        #desktop {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, #2E7FCE 0%, #7FC0E8 45%, #DCEFFB 100%);
+            overflow: hidden;
+        }
+
+        #desktop::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                    radial-gradient(ellipse at 20% 80%, rgba(255,255,255,0.25) 0%, transparent 55%),
+                    radial-gradient(ellipse at 80% 20%, rgba(255,255,255,0.15) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        #desktop-icons {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .desktop-hint {
+            color: rgba(255,255,255,0.85);
+            text-shadow: 0 1px 3px rgba(0,0,0,0.4);
+            font-size: 13px;
+            max-width: 220px;
+        }
+
+        /* ---------- WINDOWS (Aero Glass) ---------- */
+        .window {
+            position: absolute;
+            min-width: 320px;
+            min-height: 200px;
+            width: 420px;
+            height: 280px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow:
+                    0 12px 40px rgba(0,0,0,0.35),
+                    0 2px 6px rgba(0,0,0,0.25),
+                    inset 0 0 0 1px rgba(255,255,255,0.4);
+
+            /* Aero glass */
+            background: rgba(255,255,255,0.22);
+            -webkit-backdrop-filter: blur(14px) saturate(160%);
+            backdrop-filter: blur(14px) saturate(160%);
+            border: 1px solid rgba(255,255,255,0.55);
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Fallback for browsers without backdrop-filter support:
+           make background solid-ish so the window is still fully visible/usable. */
+        @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+            .window {
+                background: rgba(225, 238, 250, 0.96);
+            }
+        }
+
+        .titlebar {
+            height: 34px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 8px 0 12px;
+            cursor: move;
+            background: linear-gradient(180deg, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0.15) 100%);
+            border-bottom: 1px solid rgba(255,255,255,0.5);
+        }
+
+        .titlebar-title {
+            font-size: 13px;
+            font-weight: 600;
+            color: #14324f;
+            text-shadow: 0 1px 1px rgba(255,255,255,0.6);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            pointer-events: none;
+        }
+
+        .titlebar-icon {
+            width: 16px;
+            height: 16px;
+            border-radius: 3px;
+            margin-right: 8px;
+            flex-shrink: 0;
+            box-shadow: inset 0 0 0 1px rgba(255,255,255,0.6);
+            pointer-events: none;
+        }
+
+        .titlebar-left {
+            display: flex;
+            align-items: center;
+            min-width: 0;
+        }
+
+        .close-btn {
+            width: 22px;
+            height: 22px;
+            border-radius: 5px;
+            border: none;
+            background: linear-gradient(180deg, #ff7a6e 0%, #e5473a 100%);
+            color: #fff;
+            font-size: 13px;
+            line-height: 1;
+            cursor: pointer;
+            box-shadow: inset 0 0 0 1px rgba(255,255,255,0.5), 0 1px 2px rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .close-btn:hover { background: linear-gradient(180deg, #ff9086 0%, #f0554a 100%); }
+        .close-btn:active { background: #c8382d; }
+
+        .window-content {
+            flex: 1;
+            padding: 18px;
+            color: #10263d;
+            font-size: 14px;
+            overflow: auto;
+            text-shadow: 0 1px 1px rgba(255,255,255,0.3);
+        }
+
+        .window-content .app-line {
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .window.active {
+            box-shadow:
+                    0 16px 50px rgba(0,0,0,0.45),
+                    0 2px 6px rgba(0,0,0,0.3),
+                    inset 0 0 0 1px rgba(255,255,255,0.6);
+        }
+
+        /* ---------- TASKBAR ---------- */
+        #taskbar {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 46px;
+            display: flex;
+            align-items: center;
+            padding: 0 8px;
+            gap: 8px;
+            background: linear-gradient(180deg, rgba(90,150,210,0.55) 0%, rgba(30,80,140,0.75) 100%);
+            -webkit-backdrop-filter: blur(10px) saturate(150%);
+            backdrop-filter: blur(10px) saturate(150%);
+            border-top: 1px solid rgba(255,255,255,0.45);
+            box-shadow: 0 -2px 12px rgba(0,0,0,0.3);
+            z-index: 5000;
+        }
+
+        @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+            #taskbar {
+                background: rgba(30,80,140,0.92);
+            }
+        }
+
+        #start-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            height: 34px;
+            padding: 0 16px 0 10px;
+            border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.5);
+            background: linear-gradient(180deg, rgba(255,255,255,0.5) 0%, rgba(200,230,255,0.25) 100%);
+            color: #08213a;
+            font-weight: 700;
+            font-size: 14px;
+            cursor: pointer;
+            box-shadow: inset 0 0 0 1px rgba(255,255,255,0.4), 0 1px 3px rgba(0,0,0,0.25);
+        }
+        #start-btn:hover { background: linear-gradient(180deg, rgba(255,255,255,0.65) 0%, rgba(200,230,255,0.4) 100%); }
+        #start-btn.open { background: linear-gradient(180deg, rgba(255,255,255,0.8) 0%, rgba(180,220,255,0.5) 100%); }
+
+        #start-orb {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 35% 30%, #bfe8ff 0%, #3f9fe0 45%, #0b5aa0 100%);
+            box-shadow: inset 0 0 0 1px rgba(255,255,255,0.6);
+        }
+
+        #taskbar-items {
+            display: flex;
+            gap: 6px;
+            flex: 1;
+            overflow: hidden;
+        }
+
+        .taskbar-item {
+            height: 34px;
+            padding: 0 12px;
+            border-radius: 6px;
+            border: 1px solid rgba(255,255,255,0.35);
+            background: rgba(255,255,255,0.18);
+            color: #eaf4ff;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            max-width: 160px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+        .taskbar-item:hover { background: rgba(255,255,255,0.3); }
+        .taskbar-item.active { background: rgba(255,255,255,0.45); color: #08213a; font-weight: 600; }
+
+        #clock {
+            color: #eaf4ff;
+            font-size: 12px;
+            padding: 0 10px;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.4);
+            white-space: nowrap;
+        }
+
+        /* ---------- LAUNCHER ---------- */
+        #launcher {
+            position: absolute;
+            left: 8px;
+            bottom: 54px;
+            width: 260px;
+            border-radius: 12px;
+            padding: 10px;
+            background: rgba(255,255,255,0.35);
+            -webkit-backdrop-filter: blur(18px) saturate(160%);
+            backdrop-filter: blur(18px) saturate(160%);
+            border: 1px solid rgba(255,255,255,0.55);
+            box-shadow: 0 12px 36px rgba(0,0,0,0.35), inset 0 0 0 1px rgba(255,255,255,0.4);
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            z-index: 6000;
+        }
+
+        @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+            #launcher {
+                background: rgba(225, 238, 250, 0.97);
+            }
+        }
+
+        #launcher.show { display: flex; }
+
+        #launcher-header {
+            font-size: 12px;
+            font-weight: 700;
+            color: #14324f;
+            padding: 6px 8px 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            opacity: 0.75;
+        }
+
+        .launcher-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 9px 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            color: #0e2740;
+            font-size: 14px;
+        }
+        .launcher-item:hover { background: rgba(255,255,255,0.45); }
+
+        .launcher-icon {
+            width: 26px;
+            height: 26px;
+            border-radius: 6px;
+            flex-shrink: 0;
+            box-shadow: inset 0 0 0 1px rgba(255,255,255,0.6);
+        }
+
+        .icon-devicemgr { background: linear-gradient(135deg, #b6f0ff, #2f8fc9); }
+        .icon-store { background: linear-gradient(135deg, #ffb3d1, #d63c85); }
+        .icon-taskmgr { background: linear-gradient(135deg, #c9f7a8, #4fae3e); }
+    </style>
+</head>
+<body>
+
+<div id="desktop">
+    <div id="desktop-icons">
+        <div class="desktop-hint">Frutigo Aero — click Start to launch an app.</div>
+    </div>
+
+    <div id="launcher">
+        <div id="launcher-header">EclipseOS Apps</div>
+        <div class="launcher-item" data-app="Eclipse Device Manager">
+            <div class="launcher-icon icon-devicemgr"></div>
+            <span>Eclipse Device Manager</span>
+        </div>
+        <div class="launcher-item" data-app="Infosoft Store">
+            <div class="launcher-icon icon-store"></div>
+            <span>Infosoft Store</span>
+        </div>
+        <div class="launcher-item" data-app="Infosoft Task Manager">
+            <div class="launcher-icon icon-taskmgr"></div>
+            <span>Infosoft Task Manager</span>
+        </div>
+    </div>
+
+    <div id="taskbar">
+        <button id="start-btn">
+            <span id="start-orb"></span>
+            <span>Start</span>
+        </button>
+        <div id="taskbar-items"></div>
+        <div id="clock"></div>
+    </div>
+</div>
+
+<script>
+    (function () {
+        "use strict";
+
+        var desktop = document.getElementById('desktop');
+        var launcher = document.getElementById('launcher');
+        var startBtn = document.getElementById('start-btn');
+        var taskbarItems = document.getElementById('taskbar-items');
+        var clockEl = document.getElementById('clock');
+
+        var windowCount = 0;
+        var topZ = 100;
+        var windows = {}; // id -> { winEl, taskbarEl }
+
+        var appIconClass = {
+            'Eclipse Device Manager': 'icon-devicemgr',
+            'Infosoft Store': 'icon-store',
+            'Infosoft Task Manager': 'icon-taskmgr'
+        };
+
+        // ---------- Clock ----------
+        function updateClock() {
+            var now = new Date();
+            var h = now.getHours();
+            var m = now.getMinutes();
+            var ampm = h >= 12 ? 'PM' : 'AM';
+            var h12 = h % 12;
+            if (h12 === 0) h12 = 12;
+            var mm = m < 10 ? '0' + m : String(m);
+            clockEl.textContent = h12 + ':' + mm + ' ' + ampm;
+        }
+        updateClock();
+        setInterval(updateClock, 1000 * 15);
+
+        // ---------- Launcher toggle ----------
+        function toggleLauncher(forceState) {
+            var willShow = (typeof forceState === 'boolean') ? forceState : !launcher.classList.contains('show');
+            if (willShow) {
+                launcher.classList.add('show');
+                startBtn.classList.add('open');
+            } else {
+                launcher.classList.remove('show');
+                startBtn.classList.remove('open');
+            }
+        }
+
+        startBtn.addEventListener('click', function (e) {
+            e.stopPropagation();
+            toggleLauncher();
+        });
+
+        // Close launcher when clicking elsewhere on the desktop
+        desktop.addEventListener('mousedown', function (e) {
+            if (launcher.classList.contains('show')) {
+                if (!launcher.contains(e.target) && e.target !== startBtn && !startBtn.contains(e.target)) {
+                    toggleLauncher(false);
+                }
+            }
+        });
+
+        // ---------- Launcher items open apps ----------
+        var launcherItems = document.querySelectorAll('.launcher-item');
+        for (var i = 0; i < launcherItems.length; i++) {
+            launcherItems[i].addEventListener('click', function (e) {
+                var appName = this.getAttribute('data-app');
+                openApp(appName);
+                toggleLauncher(false);
+            });
+        }
+
+        // ---------- Window creation ----------
+        function openApp(appName) {
+            windowCount++;
+            var id = 'win-' + windowCount;
+
+            var winEl = document.createElement('div');
+            winEl.className = 'window active';
+            winEl.id = id;
+
+            // Staggered initial position so windows don't stack exactly
+            var offset = (windowCount % 8) * 24;
+            winEl.style.left = (80 + offset) + 'px';
+            winEl.style.top = (60 + offset) + 'px';
+            winEl.style.zIndex = ++topZ;
+
+            var iconClass = appIconClass[appName] || 'icon-devicemgr';
+
+            winEl.innerHTML =
+                '<div class="titlebar">' +
+                '<div class="titlebar-left">' +
+                '<div class="titlebar-icon ' + iconClass + '"></div>' +
+                '<div class="titlebar-title">' + escapeHtml(appName) + '</div>' +
+                '</div>' +
+                '<button class="close-btn" title="Close">&#10005;</button>' +
+                '</div>' +
+                '<div class="window-content">' +
+                '<div class="app-line">Running ' + escapeHtml(appName) + '&hellip;</div>' +
+                '<div>This is a placeholder window for ' + escapeHtml(appName) + ' in EclipseOS.</div>' +
+                '</div>';
+
+            desktop.appendChild(winEl);
+
+            // Focus / bring to front on mousedown anywhere in the window
+            winEl.addEventListener('mousedown', function () {
+                focusWindow(id);
+            });
+
+            // Dragging
+            var titlebar = winEl.querySelector('.titlebar');
+            makeDraggable(winEl, titlebar);
+
+            // Close button
+            var closeBtn = winEl.querySelector('.close-btn');
+            closeBtn.addEventListener('click', function (e) {
+                e.stopPropagation();
+                closeApp(id);
+            });
+
+            // Taskbar entry
+            var taskItem = document.createElement('div');
+            taskItem.className = 'taskbar-item active';
+            taskItem.textContent = appName;
+            taskItem.addEventListener('click', function () {
+                focusWindow(id);
+            });
+            taskbarItems.appendChild(taskItem);
+
+            windows[id] = { winEl: winEl, taskbarEl: taskItem };
+
+            focusWindow(id);
+        }
+
+        function closeApp(id) {
+            var entry = windows[id];
+            if (!entry) return;
+            if (entry.winEl && entry.winEl.parentNode) {
+                entry.winEl.parentNode.removeChild(entry.winEl);
+            }
+            if (entry.taskbarEl && entry.taskbarEl.parentNode) {
+                entry.taskbarEl.parentNode.removeChild(entry.taskbarEl);
+            }
+            delete windows[id];
+        }
+
+        function focusWindow(id) {
+            var entry = windows[id];
+            if (!entry) return;
+            entry.winEl.style.zIndex = ++topZ;
+
+            for (var key in windows) {
+                if (windows.hasOwnProperty(key)) {
+                    windows[key].winEl.classList.remove('active');
+                    windows[key].taskbarEl.classList.remove('active');
+                }
+            }
+            entry.winEl.classList.add('active');
+            entry.taskbarEl.classList.add('active');
+        }
+
+        // ---------- Dragging logic ----------
+        function makeDraggable(winEl, handleEl) {
+            var isDragging = false;
+            var startX = 0, startY = 0;
+            var startLeft = 0, startTop = 0;
+
+            handleEl.addEventListener('mousedown', function (e) {
+                // Ignore drags initiated on the close button
+                if (e.target.closest('.close-btn')) return;
+
+                isDragging = true;
+                startX = e.clientX;
+                startY = e.clientY;
+
+                var rect = winEl.getBoundingClientRect();
+                var deskRect = desktop.getBoundingClientRect();
+                startLeft = rect.left - deskRect.left;
+                startTop = rect.top - deskRect.top;
+
+                document.addEventListener('mousemove', onMouseMove);
+                document.addEventListener('mouseup', onMouseUp);
+                e.preventDefault();
+            });
+
+            function onMouseMove(e) {
+                if (!isDragging) return;
+                var dx = e.clientX - startX;
+                var dy = e.clientY - startY;
+
+                var deskRect = desktop.getBoundingClientRect();
+                var newLeft = startLeft + dx;
+                var newTop = startTop + dy;
+
+                // Keep window within desktop bounds (allow titlebar to stay visible)
+                var maxLeft = deskRect.width - 60;
+                var maxTop = deskRect.height - 46 - 34;
+                if (newLeft < -winEl.offsetWidth + 80) newLeft = -winEl.offsetWidth + 80;
+                if (newLeft > maxLeft) newLeft = maxLeft;
+                if (newTop < 0) newTop = 0;
+                if (newTop > maxTop) newTop = maxTop;
+
+                winEl.style.left = newLeft + 'px';
+                winEl.style.top = newTop + 'px';
+            }
+
+            function onMouseUp() {
+                isDragging = false;
+                document.removeEventListener('mousemove', onMouseMove);
+                document.removeEventListener('mouseup', onMouseUp);
+            }
+        }
+
+        // ---------- Utility ----------
+        function escapeHtml(str) {
+            var div = document.createElement('div');
+            div.textContent = str;
+            return div.innerHTML;
+        }
+
+        // Polyfill-ish safety for closest() on very old browsers
+        if (!Element.prototype.closest) {
+            Element.prototype.closest = function (selector) {
+                var el = this;
+                while (el) {
+                    if (el.matches && el.matches(selector)) return el;
+                    el = el.parentElement;
+                }
+                return null;
+            };
+        }
+
+    })();
+</script>
+
+</body>
+</html>

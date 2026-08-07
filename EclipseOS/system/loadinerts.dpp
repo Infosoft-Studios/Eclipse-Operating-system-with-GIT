@@ -1,0 +1,8 @@
+using kernel.load.exe.system;
+using function.kernel.win32.api;
+
+fn::main -> Main() created: inpub{
+    kernel.api: $false
+    kernel.emit.machine(load=0)
+    
+}

@@ -1,0 +1,3 @@
+RUN /\$Windows.~WS/Sources/Panther/Eula.rtf
+COPY ms
+

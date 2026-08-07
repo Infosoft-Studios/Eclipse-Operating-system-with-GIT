@@ -1,0 +1,6 @@
+using function.api.win32.windows.krnl;
+
+krnl::fin mai(style: fn) function
+{
+    nullptr; -> protected as: fumctoin (?)
+}

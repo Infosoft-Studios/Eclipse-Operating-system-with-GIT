@@ -1,0 +1,77 @@
+{
+	"bmi-installation" : null,
+	"compiler-frontend-variant" : "GNU",
+	"compiler-id" : "GNU",
+	"compiler-simulate-id" : "",
+	"config" : "Debug",
+	"cxx-modules" : {},
+	"database-info" : null,
+	"dir-cur-bld" : "C:/Users/hemku/desktop/EclipseOS/cmake-build-debug",
+	"dir-cur-src" : "C:/Users/hemku/desktop/EclipseOS",
+	"dir-top-bld" : "C:/Users/hemku/desktop/EclipseOS/cmake-build-debug",
+	"dir-top-src" : "C:/Users/hemku/desktop/EclipseOS",
+	"exports" : [],
+	"forward-modules-from-target-dirs" : [],
+	"include-dirs" : [],
+	"language" : "CXX",
+	"linked-target-dirs" : [],
+	"module-dir" : "C:/Users/hemku/desktop/EclipseOS/cmake-build-debug/CMakeFiles/EclipseOS_.dir",
+	"sources" : 
+	{
+		"CMakeFiles/EclipseOS_.dir/apps/Infosoft_Task_manager/appload.assets.cpp.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Users/hemku/desktop/EclipseOS/apps/Infosoft Task manager/appload.assets.cpp"
+		},
+		"CMakeFiles/EclipseOS_.dir/apps/Infosoft_Task_manager/task.cpp.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Users/hemku/desktop/EclipseOS/apps/Infosoft Task manager/task.cpp"
+		},
+		"CMakeFiles/EclipseOS_.dir/main.cpp.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Users/hemku/desktop/EclipseOS/main.cpp"
+		},
+		"CMakeFiles/EclipseOS_.dir/system/Function/.devcontainer/HeadingOnEclipse.ixx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Users/hemku/desktop/EclipseOS/system/Function/.devcontainer/HeadingOnEclipse.ixx"
+		},
+		"CMakeFiles/EclipseOS_.dir/system/cmake_exe/Python_IDE_in_Eclipse/__init__.cpp.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Users/hemku/desktop/EclipseOS/system/cmake_exe/Python IDE in Eclipse/__init__.cpp"
+		},
+		"CMakeFiles/EclipseOS_.dir/system/cmake_exe/sysfuncload.cpp.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Users/hemku/desktop/EclipseOS/system/cmake_exe/sysfuncload.cpp"
+		},
+		"CMakeFiles/EclipseOS_.dir/system/kernelbound.cpp.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Users/hemku/desktop/EclipseOS/system/kernelbound.cpp"
+		},
+		"CMakeFiles/EclipseOS_.dir/system/sysindexed32.ixx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Users/hemku/desktop/EclipseOS/system/sysindexed32.ixx"
+		},
+		"CMakeFiles/EclipseOS_.dir/system/sysloadex.cpp.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Users/hemku/desktop/EclipseOS/system/sysloadex.cpp"
+		},
+		"CMakeFiles/EclipseOS_.dir/ui/assets/getinfoapp.cpp.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Users/hemku/desktop/EclipseOS/ui/assets/getinfoapp.cpp"
+		},
+		"CMakeFiles/EclipseOS_.dir/ui/settings/syssetex.cpp.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Users/hemku/desktop/EclipseOS/ui/settings/syssetex.cpp"
+		}
+	}
+}

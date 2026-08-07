@@ -1,0 +1,3 @@
+C:/Users/hemku/desktop/EclipseOS/cmake-build-debug/CMakeFiles/EclipseOS_.dir
+C:/Users/hemku/desktop/EclipseOS/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/hemku/desktop/EclipseOS/cmake-build-debug/CMakeFiles/rebuild_cache.dir

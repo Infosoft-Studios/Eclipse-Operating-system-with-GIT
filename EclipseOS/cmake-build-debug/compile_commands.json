@@ -1,0 +1,68 @@
+[
+{
+  "directory": "C:/Users/hemku/desktop/EclipseOS/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\JETBRA~1\\CLION2~1.2\\bin\\mingw\\bin\\C__~1.EXE -g -std=gnu++26 -fdiagnostics-color=always -fmodules-ts -fmodule-mapper=CMakeFiles\\EclipseOS_.dir\\main.cpp.obj.modmap -MD -fdeps-format=p1689r5 -x c++ -o CMakeFiles\\EclipseOS_.dir\\main.cpp.obj -c C:\\Users\\hemku\\desktop\\EclipseOS\\main.cpp",
+  "file": "C:/Users/hemku/desktop/EclipseOS/main.cpp",
+  "output": "C:/Users/hemku/desktop/EclipseOS/cmake-build-debug/CMakeFiles/EclipseOS_.dir/main.cpp.obj"
+},
+{
+  "directory": "C:/Users/hemku/desktop/EclipseOS/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\JETBRA~1\\CLION2~1.2\\bin\\mingw\\bin\\C__~1.EXE -g -std=gnu++26 -fdiagnostics-color=always -fmodules-ts -fmodule-mapper=CMakeFiles\\EclipseOS_.dir\\system\\sysindexed32.ixx.obj.modmap -MD -fdeps-format=p1689r5 -x c++ -o CMakeFiles\\EclipseOS_.dir\\system\\sysindexed32.ixx.obj -c C:\\Users\\hemku\\desktop\\EclipseOS\\system\\sysindexed32.ixx",
+  "file": "C:/Users/hemku/desktop/EclipseOS/system/sysindexed32.ixx",
+  "output": "C:/Users/hemku/desktop/EclipseOS/cmake-build-debug/CMakeFiles/EclipseOS_.dir/system/sysindexed32.ixx.obj"
+},
+{
+  "directory": "C:/Users/hemku/desktop/EclipseOS/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\JETBRA~1\\CLION2~1.2\\bin\\mingw\\bin\\C__~1.EXE -g -std=gnu++26 -fdiagnostics-color=always -fmodules-ts -fmodule-mapper=CMakeFiles\\EclipseOS_.dir\\system\\Function\\.devcontainer\\HeadingOnEclipse.ixx.obj.modmap -MD -fdeps-format=p1689r5 -x c++ -o CMakeFiles\\EclipseOS_.dir\\system\\Function\\.devcontainer\\HeadingOnEclipse.ixx.obj -c C:\\Users\\hemku\\desktop\\EclipseOS\\system\\Function\\.devcontainer\\HeadingOnEclipse.ixx",
+  "file": "C:/Users/hemku/desktop/EclipseOS/system/Function/.devcontainer/HeadingOnEclipse.ixx",
+  "output": "C:/Users/hemku/desktop/EclipseOS/cmake-build-debug/CMakeFiles/EclipseOS_.dir/system/Function/.devcontainer/HeadingOnEclipse.ixx.obj"
+},
+{
+  "directory": "C:/Users/hemku/desktop/EclipseOS/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\JETBRA~1\\CLION2~1.2\\bin\\mingw\\bin\\C__~1.EXE -g -std=gnu++26 -fdiagnostics-color=always -fmodules-ts -fmodule-mapper=CMakeFiles\\EclipseOS_.dir\\system\\sysloadex.cpp.obj.modmap -MD -fdeps-format=p1689r5 -x c++ -o CMakeFiles\\EclipseOS_.dir\\system\\sysloadex.cpp.obj -c C:\\Users\\hemku\\desktop\\EclipseOS\\system\\sysloadex.cpp",
+  "file": "C:/Users/hemku/desktop/EclipseOS/system/sysloadex.cpp",
+  "output": "C:/Users/hemku/desktop/EclipseOS/cmake-build-debug/CMakeFiles/EclipseOS_.dir/system/sysloadex.cpp.obj"
+},
+{
+  "directory": "C:/Users/hemku/desktop/EclipseOS/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\JETBRA~1\\CLION2~1.2\\bin\\mingw\\bin\\C__~1.EXE -g -std=gnu++26 -fdiagnostics-color=always -fmodules-ts -fmodule-mapper=CMakeFiles\\EclipseOS_.dir\\system\\cmake_exe\\Python_IDE_in_Eclipse\\__init__.cpp.obj.modmap -MD -fdeps-format=p1689r5 -x c++ -o CMakeFiles\\EclipseOS_.dir\\system\\cmake_exe\\Python_IDE_in_Eclipse\\__init__.cpp.obj -c \"C:\\Users\\hemku\\desktop\\EclipseOS\\system\\cmake_exe\\Python IDE in Eclipse\\__init__.cpp\"",
+  "file": "C:/Users/hemku/desktop/EclipseOS/system/cmake_exe/Python IDE in Eclipse/__init__.cpp",
+  "output": "C:/Users/hemku/desktop/EclipseOS/cmake-build-debug/CMakeFiles/EclipseOS_.dir/system/cmake_exe/Python_IDE_in_Eclipse/__init__.cpp.obj"
+},
+{
+  "directory": "C:/Users/hemku/desktop/EclipseOS/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\JETBRA~1\\CLION2~1.2\\bin\\mingw\\bin\\C__~1.EXE -g -std=gnu++26 -fdiagnostics-color=always -fmodules-ts -fmodule-mapper=CMakeFiles\\EclipseOS_.dir\\ui\\settings\\syssetex.cpp.obj.modmap -MD -fdeps-format=p1689r5 -x c++ -o CMakeFiles\\EclipseOS_.dir\\ui\\settings\\syssetex.cpp.obj -c C:\\Users\\hemku\\desktop\\EclipseOS\\ui\\settings\\syssetex.cpp",
+  "file": "C:/Users/hemku/desktop/EclipseOS/ui/settings/syssetex.cpp",
+  "output": "C:/Users/hemku/desktop/EclipseOS/cmake-build-debug/CMakeFiles/EclipseOS_.dir/ui/settings/syssetex.cpp.obj"
+},
+{
+  "directory": "C:/Users/hemku/desktop/EclipseOS/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\JETBRA~1\\CLION2~1.2\\bin\\mingw\\bin\\C__~1.EXE -g -std=gnu++26 -fdiagnostics-color=always -fmodules-ts -fmodule-mapper=CMakeFiles\\EclipseOS_.dir\\apps\\Infosoft_Task_manager\\appload.assets.cpp.obj.modmap -MD -fdeps-format=p1689r5 -x c++ -o CMakeFiles\\EclipseOS_.dir\\apps\\Infosoft_Task_manager\\appload.assets.cpp.obj -c \"C:\\Users\\hemku\\desktop\\EclipseOS\\apps\\Infosoft Task manager\\appload.assets.cpp\"",
+  "file": "C:/Users/hemku/desktop/EclipseOS/apps/Infosoft Task manager/appload.assets.cpp",
+  "output": "C:/Users/hemku/desktop/EclipseOS/cmake-build-debug/CMakeFiles/EclipseOS_.dir/apps/Infosoft_Task_manager/appload.assets.cpp.obj"
+},
+{
+  "directory": "C:/Users/hemku/desktop/EclipseOS/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\JETBRA~1\\CLION2~1.2\\bin\\mingw\\bin\\C__~1.EXE -g -std=gnu++26 -fdiagnostics-color=always -fmodules-ts -fmodule-mapper=CMakeFiles\\EclipseOS_.dir\\ui\\assets\\getinfoapp.cpp.obj.modmap -MD -fdeps-format=p1689r5 -x c++ -o CMakeFiles\\EclipseOS_.dir\\ui\\assets\\getinfoapp.cpp.obj -c C:\\Users\\hemku\\desktop\\EclipseOS\\ui\\assets\\getinfoapp.cpp",
+  "file": "C:/Users/hemku/desktop/EclipseOS/ui/assets/getinfoapp.cpp",
+  "output": "C:/Users/hemku/desktop/EclipseOS/cmake-build-debug/CMakeFiles/EclipseOS_.dir/ui/assets/getinfoapp.cpp.obj"
+},
+{
+  "directory": "C:/Users/hemku/desktop/EclipseOS/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\JETBRA~1\\CLION2~1.2\\bin\\mingw\\bin\\C__~1.EXE -g -std=gnu++26 -fdiagnostics-color=always -fmodules-ts -fmodule-mapper=CMakeFiles\\EclipseOS_.dir\\apps\\Infosoft_Task_manager\\task.cpp.obj.modmap -MD -fdeps-format=p1689r5 -x c++ -o CMakeFiles\\EclipseOS_.dir\\apps\\Infosoft_Task_manager\\task.cpp.obj -c \"C:\\Users\\hemku\\desktop\\EclipseOS\\apps\\Infosoft Task manager\\task.cpp\"",
+  "file": "C:/Users/hemku/desktop/EclipseOS/apps/Infosoft Task manager/task.cpp",
+  "output": "C:/Users/hemku/desktop/EclipseOS/cmake-build-debug/CMakeFiles/EclipseOS_.dir/apps/Infosoft_Task_manager/task.cpp.obj"
+},
+{
+  "directory": "C:/Users/hemku/desktop/EclipseOS/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\JETBRA~1\\CLION2~1.2\\bin\\mingw\\bin\\C__~1.EXE -g -std=gnu++26 -fdiagnostics-color=always -fmodules-ts -fmodule-mapper=CMakeFiles\\EclipseOS_.dir\\system\\cmake_exe\\sysfuncload.cpp.obj.modmap -MD -fdeps-format=p1689r5 -x c++ -o CMakeFiles\\EclipseOS_.dir\\system\\cmake_exe\\sysfuncload.cpp.obj -c C:\\Users\\hemku\\desktop\\EclipseOS\\system\\cmake_exe\\sysfuncload.cpp",
+  "file": "C:/Users/hemku/desktop/EclipseOS/system/cmake_exe/sysfuncload.cpp",
+  "output": "C:/Users/hemku/desktop/EclipseOS/cmake-build-debug/CMakeFiles/EclipseOS_.dir/system/cmake_exe/sysfuncload.cpp.obj"
+},
+{
+  "directory": "C:/Users/hemku/desktop/EclipseOS/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\JETBRA~1\\CLION2~1.2\\bin\\mingw\\bin\\C__~1.EXE -g -std=gnu++26 -fdiagnostics-color=always -fmodules-ts -fmodule-mapper=CMakeFiles\\EclipseOS_.dir\\system\\kernelbound.cpp.obj.modmap -MD -fdeps-format=p1689r5 -x c++ -o CMakeFiles\\EclipseOS_.dir\\system\\kernelbound.cpp.obj -c C:\\Users\\hemku\\desktop\\EclipseOS\\system\\kernelbound.cpp",
+  "file": "C:/Users/hemku/desktop/EclipseOS/system/kernelbound.cpp",
+  "output": "C:/Users/hemku/desktop/EclipseOS/cmake-build-debug/CMakeFiles/EclipseOS_.dir/system/kernelbound.cpp.obj"
+}
+]

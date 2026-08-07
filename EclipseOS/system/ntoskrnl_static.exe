@@ -1,0 +1,13 @@
+#include <frigg/frigg.h>
+#include <lil/intel.hpp>
+#include <lil/context.hpp>
+#include <lil/quene.hpp>
+#include <windows.h>
+
+lil::context ctx;
+lil::krnlos krnl;
+
+static void init()
+{
+    krnl::bound<functioninitialized(nullptr, true)>&& system::LOAD<func::load(nullptr, false)>;
+}

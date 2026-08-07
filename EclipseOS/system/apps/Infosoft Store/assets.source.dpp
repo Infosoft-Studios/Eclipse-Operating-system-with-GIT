@@ -1,0 +1,11 @@
+using assets.store.manager;
+using store.manager.load.apps;
+using json.incode.code;
+
+fn::main -> created Opb32(nullptr -> onmain) protected: start {
+    create::json <load>: start (
+        | loadstar
+        | function
+        | init
+    );
+};
