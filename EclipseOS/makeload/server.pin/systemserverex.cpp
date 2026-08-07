@@ -15,3 +15,10 @@ std::size_t function_arguments = function::boot<drive::init(nullptr, true)>&& te
 // some decs for byte
 static std::int64_t databyte = 0x00045;
 
+// create static maybe_unused void
+static void __Function__Initializer__()
+{
+    static std::int64_t system__loader__init = systembyte::function__boot<system::bytedata or databyte& system::loaded(nullptr, false)>;
+    return 0;
+}
+
