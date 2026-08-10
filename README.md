@@ -1,13 +1,14 @@
 # Eclipse Operating system
 
 An very **interesting OS** made by Infosoft Studios nxoskrnl technology. Here is the Content
-——————————————-
+
+```
 1 - System requirements
 2 - Initial folders
 3 - System files
 4 - Notes 
 5 - licensing and Final informations
-———————————————
+```
 ## System requirements 
 For EclipseOS to run on devices, we need the proper recommended and standerd Eclipse specifications/specs. For all the registry handlers and some background processes, here is the diagram of what you need, like processor, gpu and RAM:
 
