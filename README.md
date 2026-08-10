@@ -38,7 +38,6 @@ RAM: DDR4 or DDR5 min: 2GB
 There is lots of initial folders, the most importent ones are the system and makeload folder.
 ### System files
 in thoese folders, you can find the kernel and more complex and importent files
-———————————————-
 ## notes
 
 > Deleting any folder or file from the ```Function32``` folder, will cause your Computer to not boot and even killing your data, which forces a reinstall.
