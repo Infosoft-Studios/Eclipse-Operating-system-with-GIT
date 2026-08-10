@@ -1,0 +1,19 @@
+cache:
+  TDP: cache call 5.67 TB of storage min of <aborted> message
+  REG: cache all TDP reg__entries
+
+.registry:
+  REGKEY_MACHINE:
+    Hardware:
+      AMD: cache 
+      intel: load TDP in private cache 
+      nividia: Load Intel by amd with Drivers
+    Drivers:
+      lil: Intel (GPU) devices loaded on CPU commands <aborted><system> --msg
+  REGKEY_OS:
+    USER
+    SYSTEM
+    FILE:
+      user: system key host (2) -> n admin
+      user: system key host (1) -> y admin
+      
