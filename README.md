@@ -35,7 +35,7 @@ RAM: DDR4 or DDR5 min: 2GB
 ```
 ———————————————-
 ## Initial folders
-There is lots of initial folders, the most importent ones are the system and makeload file.
+There is lots of initial folders, the most importent ones are the system and makeload folder.
 ### System files
 in thoese folders, you can find the kernel and more complex and importent files
 ———————————————-
@@ -43,7 +43,6 @@ in thoese folders, you can find the kernel and more complex and importent files
 
 > Deleting any folder or file from the ```Function32``` folder, will cause your Computer to not boot and even killing your data, which forces a reinstall.
 > Please know: That we kindly advise you to change Master boot on winlan to ensure a better stability system. Turn it off in the BIOS by eclipse
-
 
 ## licensing and final information
 Everything is not allowed to be edited and please do not edit the actual initial files, please fork the repository for your own version of eclipse, Thank you!
