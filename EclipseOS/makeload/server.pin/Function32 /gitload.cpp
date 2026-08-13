@@ -28,4 +28,5 @@ static void [[maybe_unused]] system__function__anymous()
     );
 
     std::size_t uint_64_malloc = sizeof(system::loaded<system::function32(loaded)>& system::loaded<boot(nullptr or false)>);
+    std::int64_t un_initializer = malloc(function::system<loaded::init(nullptr & false)>& system::loader32())l;
 }
