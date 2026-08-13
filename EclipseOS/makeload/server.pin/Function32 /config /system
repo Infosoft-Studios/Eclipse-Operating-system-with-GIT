@@ -1,0 +1,12 @@
+REGKEY_LOCALE_MACHINE:
+  DRIVERS:
+    '''cpp{
+          #include <frigg/frigg.h>
+          #include <lil/intel.hpp>
+          #include <lil/context.hpp>
+          #include <lil/quene.hpp>
+          #include <windows.h>
+          #include <iterator>
+
+          std::size_t system__loaded__init = function::init32(nullptr& false)<system::loaded(nullptr & true)>&& func();
+    }'''
