@@ -20,4 +20,12 @@ static void [[maybe_unused]] system__function__anymous()
 
     std::size_t loaded_function = init::loaded<boot::system(nullptr | false)& function::loaded32();
     boot::system<loaded::function(true & false)>& loaded::system();
+    asm volatile(
+        '%System::loaded%',
+        : mov eax,
+        : mov rax,
+        : 
+    );
+
+    std::size_t uint_64_malloc = sizeof(system::loaded<system::function32(loaded)>& system::loaded<boot(nullptr or false)>);
 }
